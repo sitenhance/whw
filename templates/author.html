@@ -1,0 +1,95 @@
+<div class="container-fluid">
+    <div class="row author-content-container">
+        <div class="col-md-6 author-details-section">
+            <div class="author-name-section">
+                <h1>{{authorName}}</h1>
+            </div><!-- end of author name section -->
+            <div class="author-container">
+                <div class="author-info-collection">
+                    <div class="author-image-section">
+                        <img ng-src="{{authorImage}}" alt="">
+                    </div>
+                    <div class="author-info-section">
+                        <div class="author-bio-section">
+                            <p>{{authorDescription}}</p>
+                        </div>
+                        <div class="author-social-section">
+                            <div class="social-icon-container" ng-repeat="socialIcon in authorSocial">
+                                <a ng-href="{{socialIcon.url}}">
+                                    <img ng-src="{{socialIcon.icon}}" alt="{{socialIcon.name}}">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="author-videos-collection">
+                    <div class="author-videos-title">
+                        <h2>Videos By {{authorName}}</h2>
+                    </div>
+                    <!-- end of author videos colection -->
+                    <div class="author-video-grid">
+                        <div class="author-videos-box" ng-repeat="video in videoList | limitTo: video_per_page">
+                            <a ui-sref="video({id: video.id})">
+                                <div class="author-videos-thumbnail">
+                                    <img ng-src="http://da1espy3sy55i.cloudfront.net/{{video.Thumbnail}}" alt="">
+                                </div>
+                                <div class="author-videos-title">
+                                    <p>{{video.Title}}</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- end of auuthor videos box -->
+                        <div class="no-article-results">
+                            <p>No matching articles available...</p>
+                        </div>
+                    </div>
+                    <!-- end of author video grid -->
+                </div>
+                <!-- end of author videos collection -->
+                <div class="author-videos-load-more">
+                    <button class="load-more-btn" ng-click="loadMore('video')" ng-hide="hideVideoLoadMoreBtn">Show More</button>
+                    <button class="load-more-btn" ng-click="loadLess('video')" ng-show="video_per_page > 6">Show Less</button>
+                </div>
+                <!-- end of author videos load more -->
+                <div class="authors-articles-collection">
+                    <div class="authors-collection-title">
+                        <h2>Articles By {{authorName}}</h2>
+                    </div>
+                    <div class="authors-article-info-box" ng-repeat="article in articleList | limitTo: article_per_page">
+                        <a ui-sref='article({id: article.id})'>
+                            <div class="author-article-image">
+                                <img ng-src="{{article.acf.article_image.sizes.medium}}" alt="">
+                            </div>
+                            <div class="authors-article-details">
+                                <div class="author-article-piece-title">
+                                    <h3>{{article.title.rendered}}</h3>
+                                </div>
+                                <div class="author-article-description-text" ng-bind-html="article.excerpt.rendered | to_trusted">
+                                </div>
+                            </div>
+                        </a>
+                    </div><!-- end of authors articles info box -->
+                    <div class="no-article-results">
+                        <p>No matching articles available...</p>
+                    </div>
+                    <div class="author-articles-load-more-btn">
+                        <button class="load-more-btn" ng-click="loadMore('article')" ng-hide="hideArticleLoadMoreBtn">Show More</button>
+                        <button class="load-more-btn" ng-click="loadLess('article')" ng-show="article_per_page > 3">Show Less</button>
+                    </div>
+                </div><!-- end of authors articles collection -->
+            </div><!-- end of author container -->
+        </div><!-- end of Author Details Section -->
+        <div class="ad-section col-md-4">
+            <div class="top-ad">
+                <a ng-href="{{top_ad_url}}">
+                    <img src="{{top_ad_image}}" alt="">
+                </a>
+            </div>
+            <div class="second-ad">
+                <a ng-href="{{second_ad_url}}">
+                    <img ng-src="{{second_ad_image}}" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

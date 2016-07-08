@@ -1,0 +1,146 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="single-video-view">
+            <div class="col-md-8 col-md-offset-1 single-video-vid-sect">
+                <div class="single-video-container">
+                    <div class="single-video-title">
+                        <h1>{{videoTitle}}</h1>
+                    </div><!-- end of single video title -->
+                    <div class="single-video-player-container">
+                        <videogular>
+                            <vg-media vg-src="config.sources"></vg-media>
+                            <vg-controls vg-autohide="config.plugins.controls.autoHide" vg-autohide-time="config.plugins.controls.autoHideTime">
+                                <vg-play-pause-button></vg-play-pause-button>
+                                <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+                                <vg-scrub-bar>
+                                    <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                                </vg-scrub-bar>
+                                <vg-time-display>{{ timeLeft | date: 'mm:ss' }}</vg-time-display>
+                                <vg-volume>
+                                    <vg-mute-button></vg-mute-button>
+                                    <vg-volume-bar></vg-volume-bar>
+                                </vg-volume>
+                                <vg-fullscreen-button></vg-fullscreen-button>
+                            </vg-controls>
+                        </videogular>
+                    </div><!-- end of single video player container -->
+                    <div class="single-video-author-cat-container">
+                        <div class="single-video-author-info-container">
+                            <p>Author:</p>
+                            <div class="single-video-author-info">
+                                <a ui-sref="author({id:authorId})">
+                                    <p class="single-video-author-name">{{authorName}}</p>
+                                </a>
+                                    <p class="single-video-author-job">{{authorTitle}}</p>
+                                    <p class="single-video-author-company">{{authorCompany}}</p>                                    
+
+                            </div>
+                        </div>
+                        <div class="single-video-categories">
+                            <p>Category:</p>
+                            <div class="single-video-category-list">
+                                <a ui-sref="categories({category: category})">{{category}}</a>
+                            </div>
+                        </div>
+                    </div><!-- end of single video author cat container -->
+                    <!--<div class="single-video-video-description">
+                        <p>Pommy ipsum 10 pence mix a cracking big light proper roast beef earwig conked him one on the nose, knackered rumpy pumpy 10 pence mix gob doing my nut in splendid naff. Splendid Sherlock got his end away tally-ho pie-eyed Queen Elizabeth absolute, the fuzz ey up Dr. Watson damn bossy britches squiffy, knows bugger all about nowt on his bill spam fritters have a butcher's at this spam fritters. Middle class grub's up well fit not some sort of dosshouse absolute twoddle alright geezer, middle class pigeons in Trafalgar Square wind up off the hook. Southeners could murder a pint a bit miffed and, down the local air one's dirty linen. - See more at: http://www.pommyipsum.com/#sthash.qgaubxrv.dpuf</p>
+                    </div>-->
+                    <!-- video description -->
+                    <div class="mobile-related-sect">
+                        <div class="related-video-section">
+                            <div class="related-videos-title">
+                                <p>Related Videos</p>
+                            </div>
+                            <div class="related-videos-container">
+                                <div class="mobile-related-video-box" ng-repeat="video in relatedVideos | limitTo: video_per_page">
+                                    <a ui-sref="video({id:video.id})">
+                                        <div class="mobile-related-video-thumbnail-container">
+                                            <img ng-src="http://da1espy3sy55i.cloudfront.net/{{video.Thumbnail}}" alt="">
+                                        </div>
+                                        <!-- end of related video thumbnail container -->
+                                        <div class="related-video-title">
+                                            <p>{{video.Title}}</p>
+                                        </div>
+                                        <!-- end of related video title -->
+                                    </a>
+                                </div>
+                                <!-- end of related video box -->
+                            </div>
+                            <!-- related videos container -->
+                            <div class="related-videos-load-more">
+                                <button ng-click="loadMore();" ng-hide="hideRelateVideoLoadBtn">Load More Videos</button>
+                                <button ng-click="loadLess();" ng-show="video_per_page > 3">Load Less Videos</button>
+                            </div>
+                            <!-- end of related videos load more -->
+                        </div>
+                        <!-- end of related video section -->
+                    </div>
+                    <div class="single-video-social-share">
+                        <a ng-href="https://www.facebook.com/sharer/sharer.php?u={{formattedUrl}}" class="share-facebook-icon share-icons" target="_blank">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a ng-href="https://twitter.com/intent/tweet?via=WatchHerWorking&text={{twitterTitle}}&url={{formattedUrl}}" class="share-twitter-icon share-icons"
+                            target="_blank">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a ng-href="https://plus.google.com/share?url={{formattedUrl}}" class="share-icons share-google-icon">
+                            <i class="fa fa-google-plus" aria-hidden="true"></i>
+                        </a>
+                        <a href="//www.pinterest.com/pin/create/button/?url={{formattedUrl}}&media={{articleImage}}&description={{category}}" data-pin-do="buttonPin"
+                            data-pin-config="" data-pin-shape="round" target="_blank" class="share-pinterest-icon share-icons">
+                            <i class="fa fa-pinterest"></i>
+                        </a>
+                        <a ng-href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site {{formattedUrl}}" title="Share by Email"
+                            class="share-icons share-email-icon" target="_blank">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <!-- end of single video social section -->
+                    <div class="single-video-comments-section">
+                        <!-- Facebook Comments -->
+                        <div class="fb-comments" ng-if="pluginOn" onrender="rendered()" data-href="{{currentUrl}}" data-numposts="100">
+                        </div>
+                        <!-- End of Facebook Comments -->
+                    </div>
+                    <!-- end of article comments section -->
+                </div><!-- end of single video container -->
+            </div><!-- end of col md 8 -->
+            <div class="col-md-3 single-video-ad-sect">
+                <div class="related-video-section">
+                    <div class="related-videos-title">
+                        <p>Related Videos</p>
+                    </div>
+                    <div class="related-videos-container">
+                        <div class="related-video-box" ng-repeat="video in relatedVideos | limitTo: video_per_page">
+                            <a ui-sref="video({id:video.id})">
+                                <div class="related-video-thumbnail-container">
+                                    <img ng-src="http://da1espy3sy55i.cloudfront.net/{{video.Thumbnail}}" alt="">
+                                </div><!-- end of related video thumbnail container -->
+                                <div class="related-video-title">
+                                    <p>{{video.Title}}</p>
+                                </div><!-- end of related video title -->
+                            </a>
+                        </div><!-- end of related video box -->
+                        <div class="related-videos-load-more">
+                            <button ng-click="loadMore();" ng-hide="hideRelateVideoLoadBtn">Load More Videos</button>
+                            <button ng-click="loadLess();" ng-show="video_per_page > 3">Load Less Videos</button>
+                        </div><!-- end of related videos load more -->
+                    </div><!-- related videos container -->
+                </div><!-- end of related video section -->
+                <div class="related-video-ad-container">
+                    <div class="related-video-rect-ad-container">
+                        <a ng-href="{{singleAdOneUrl}}" target="_blank">
+                            <img src="{{singleAdOneImg}}" alt="">
+                        </a>
+                    </div><!-- end of related-video-rect-ad-container -->
+                    <div class="related-video-rect-ad-container">
+                        <a ng-href="{{singleAdTwoUrl}}" target="_blank">
+                            <img src="{{singleAdTwoImg}}" alt="">
+                        </a>
+                    </div><!-- end of related-video-rect-ad-container -->
+                </div><!-- end of related-video-ad-container -->
+            </div><!-- end of col md 3 -->
+        </div><!-- single video view -->
+    </div><!-- end of row -->
+</div>

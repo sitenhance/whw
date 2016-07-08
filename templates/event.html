@@ -1,0 +1,102 @@
+<div class="container-fluid">
+    <div class="row event-layout">
+        <div class="event-info-section">
+            <div class="single-event-view">
+                <div class="event-title">
+                <h1>{{eventName}}</h1>
+                <p>{{eventFullDate}}</p>                
+                </div>
+                <div class="single-event-image">
+                    <img ng-src="{{eventImage}}" alt="">
+                </div>
+                <div class="event-description" ng-bind-html="eventDescription | to_trusted">
+                </div>
+                <div class="event-location">
+                    <div class="event-map">
+                        <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+                            <ui-gmap-marker idkey="marker.id" coords="marker.coords"></ui-gmap-marker>
+                        </ui-gmap-google-map>
+                    </div>
+                    <div class="event-address">
+                        <p><strong>Location:</strong> {{eventLocation}}</p>
+                    </div>
+                </div>
+                <div class="event-founder-info">
+                    <div class="event-founder-image">
+                        <img src="{{hostsImage}}" alt="">
+                    </div>
+                    <div class="event-founder-details">
+                        <div class="event-host">
+                            <p ui-sref="author({id: authorId})"><span class="hostText">HOST:</span> {{hostsName}}</p>
+                            <p class="event-jobTitle">{{hostsTitle}}</p>
+                        </div>
+                        <div class="event-host-description" ng-bind-html="hostsDescription | to_trusted">
+                        </div>
+                    </div>
+                </div>
+<!-- Start of Event Registration -->
+                <div class="form-style-10">
+                    <h1>Event Registration Form<span>RSVP to the event!</span></h1>
+                    <form ng-submit="submitRegistration()" ng-hide="emailSent">
+                        <div class="section"><span>1</span>Name &amp; Email</div>
+                        <div class="inner-wrap">
+                            <div ng-class="{ 'has-error' : errorName }">
+                                <label>Your Full Name
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name" ng-model="formData.name" />
+                                </label>
+                                <span class="help-block" ng-show="errorName"></span>
+                            </div>
+                            <div id="email-group" class="form-group" ng-class="{ 'has-error' : errorEmail }">
+                                <label>Email Address
+                                    <input type="email" name="email" class="form-control" placeholder="Email Address" ng-model="formData.email" />
+                                </label>
+                                <span class="help-block" ng-show="errorSuperhero"></span>
+                            </div>
+                        </div>
+
+                        <div class="section"><span>2</span>RSVP</div>
+                        <div class="inner-wrap">
+                            <div id="guests-group" class="form-group" ng-class="{ 'has-error' : errorGuests }">
+                                <label for="guests">Number of Guests:
+                                    <select id="guests" name="guests" ng-model="formData.guests">
+                                        <option value="one">1</option>
+                                        <option value="two">2</option>
+                                        <option value="three">3</option>
+                                        <option value="four">4</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="button-section">
+                            <input type="submit" name="Register" />
+                        </div>
+                    </form>
+                    <div class="contactSubmissionText" ng-show="emailSent">
+                        <p>{{message}}</p>
+                    </div>
+                </div>
+                <!-- End of Event Registration -->
+            </div>
+        </div>
+        <div class="event-ad-section">
+            <div class="hello-ads">
+                <div class="event-ad-one">
+                    <div class="ad-container">
+                        <a ng-href="{{topAdUrl}}">
+                            <!--<img ng-src="{{adSkyscraperOne}}" alt="">-->
+                            <img src="{{topAdImage}}" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="event-ad-two">
+                    <div class="ad-container">
+                        <a ng-href="{{bottomAdUrl}}">
+                            <!--<img ng-src="{{adRectTwo}}" alt="">-->
+                            <img src="{{bottomAdImage}}" alt="">
+                        </a>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

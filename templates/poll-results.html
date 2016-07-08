@@ -1,0 +1,99 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="top-poll-container">
+            <div class="col-md-8 poll-results-container">
+                <div class="poll-title-section">
+                    <h1>In Tough Economic Times, Does Your Company Cut Back?</h1>
+                </div><!-- end of poll title section -->
+                <div class="poll-social-section">
+                    <div ng-bind-html="socialShare | to_trusted"></div>
+                </div><!-- end of poll social section -->
+                <div class="poll-graph-section">
+                    <div class="poll-graph-results">
+                        <div id="piechart" style="width: 500px; height: 500px;"></div>
+                    </div><!-- end of poll graph results -->
+                </div><!-- end of poll graph section -->
+                <div class="poll-responses-section">
+                    <p>Total Number Of Responses: <span class="responseNumber">120</span></p>
+                </div><!-- end of poll responses section -->
+            </div><!--end of poll results container -->
+            <div class="top-poll-ads-container col-md-4">
+                <div class="ad-container">
+                    <div class="top-ad-section">
+                        <a ng-href="{{topFirstAdUrl}}">
+                            <img ng-src="{{topFirstAdImage}}" alt="">
+                        </a>
+                    </div><!-- end of top ad section -->
+                    <div class="top-second-ad-section">
+                        <a ng-href="{{topSecondAdUrl}}">
+                            <img ng-src="{{topSecondAdImage}}" alt="">
+                        </a>
+                    </div>
+                </div><!-- end of ad container -->
+            </div><!-- end of top pol ads container -->
+        </div><!-- end of top poll container -->
+    </div><!-- end of row -->
+    <div class="row">
+        <div class="related-polls-container">
+            <div class="related-polls-title">
+                <h3>Check Out Our Other Polls:</h3>
+            </div><!-- end of related polls title -->
+            <div class="related-polls-gallery">
+                <div class="related-poll-box">
+                    <div class="thumbnail-container">
+                        <img src="http://placehold.it/200x150" alt="">
+                    </div><!-- end of thumbnail container -->
+                    <div class="related-poll-title">
+                        <p>Title of Poll</p>
+                    </div><!-- end of related poll title -->
+                </div><!-- end of related poll box -->
+                <div class="related-poll-box">
+                    <div class="thumbnail-container">
+                        <img src="http://placehold.it/200x150" alt="">
+                    </div>
+                    <!-- end of thumbnail container -->
+                    <div class="related-poll-title">
+                        <p>Title of Poll</p>
+                    </div>
+                    <!-- end of related poll title -->
+                </div>
+                <!-- end of related poll box -->
+                <div class="related-poll-box">
+                    <div class="thumbnail-container">
+                        <img src="http://placehold.it/200x150" alt="">
+                    </div>
+                    <!-- end of thumbnail container -->
+                    <div class="related-poll-title">
+                        <p>Title of Poll</p>
+                    </div>
+                    <!-- end of related poll title -->
+                </div>
+                <!-- end of related poll box -->
+            </div><!-- end of related polls gallery -->
+        </div><!-- end of reltaed polls container -->
+    </div><!-- end of row -->
+    <div class="row">
+        <div class="poll-comment-container">
+            <div class="col-md-8 comment-section">
+                <!-- Facebook Comments -->
+                <div class="fb-comments" ng-if="pluginOn" onrender="rendered()" data-href="{{currentUrl}}" data-numposts="100">
+                </div>
+                <!-- End of Facebook Comments -->
+            </div>
+            <div class="comment-ad-section col-md-4">
+                <div class="comment-ad-container">
+                    <div class="comment-top-ad">
+                        <a ng-href="{{commentsFirstAdUrl}}">
+                            <img ng-src="{{commentsFirstAdImage}}" alt="">
+                        </a>
+                    </div><!-- end of comment top ad -->
+                    <div class="comment-second-ad">
+                        <a ng-href="{{commentsSecondAdUrl}}">
+                            <img ng-src="{{commentsSecondAdImage}}" alt="">
+                        </a>
+                    </div>
+                </div><!-- end of comment ad container -->
+            </div><!-- end of comment ad section -->
+        </div><!-- end of poll comment container -->
+    </div><!-- end of row -->
+</div>

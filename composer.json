@@ -1,0 +1,8 @@
+{
+    "name": "halbert/whw",
+    "require": {
+        "phpmailer/phpmailer": "~5.2",
+        "league/oauth2-client": "^1.4",
+        "league/oauth2-google": "^1.0"
+    }
+}

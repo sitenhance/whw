@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="her-title-container">
+                <h1>We would love to hear from you!</h1>
+            </div>
+            <!-- end of read-title-container -->
+        </div>
+        <!-- end of col md 4 -->
+    </div>
+    <!-- end of row -->
+    <div class="row">
+        <div class="col-md-12">
+            <img class="her-img" ng-src="{{contact_image}}" alt="">
+        </div>
+    </div>
+    <!-- end of row -->
+    <div clas="row">
+        <div class="col-md-12">
+            <div class="contact-form-container">
+                <form ng-submit="submitContact()" ng-hide="emailSent" class="contact-form">
+                    <!-- NAME -->
+                    <div id="name-group" class="form-group" ng-class="{ 'has-error' : errorName }">
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Your Name" ng-model="formData.name">
+                        <span class="help-block" ng-show="errorName"></span>
+                    </div>
+                    <div id="email-group" class="form-group" ng-class="{ 'has-error' : errorEmail }">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="Email Address" ng-model="formData.email">
+                        <span class="help-block" ng-show="errorSuperhero"></span>
+                    </div>
+                    <div id="content-group" class="form-group" ng-class="{ 'has-error' : errorContent }">
+                        <label>Message</label>
+                        <textarea rows="5" cols="50" class="form-control" placeholder="Enter your message" ng-model="formData.content"></textarea>
+                        <span class="help-block" ng-show="errorContent"></span>
+                    </div>
+                    <button type="submit" class="contact-submit-btn"> Submit!
+                    </button>
+                </form>
+                <div class="contactSubmissionText" ng-show="emailSent">
+                    <p>{{message}}</p>
+                </div>
+            </div>
+        </div>
+        <!-- end of col-md-12 -->
+        <div class="col-md-4">
+            <div ng-bind-html="contact_info | to_trusted">
+
+            </div>
+        </div>
+
+    </div>
+    <!-- end of row -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="contact-social-section">
+                <a href="https://www.facebook.com/watchherworkitout/">
+                    <img ng-src="{{articleFBIcon}}" alt="">
+                </a>
+                <a href="https://twitter.com/WatchHerWorking/">
+                    <img ng-src="{{articleTwitIcon}}" alt="">
+                </a>
+                <a href="https://plus.google.com/115366933861570929568/">
+                    <img ng-src="{{articleGoogleIcon}}" alt="">
+                </a>
+                <a href="https://www.pinterest.com/watchherworking/">
+                    <img ng-src="{{articlePinIcon}}" alt="">
+                </a>
+                <a href="https://www.linkedin.com/company/watchherwork.com/">
+                    <img ng-src="{{articleLinkedIcon}}" alt="">
+                </a>
+            </div>
+            <!-- end of article social section -->
+            <div ng-bind-html="press_media | to_trusted">
+
+            </div>
+
+        </div>
+        <!-- end of col-md-12 -->
+    </div>
+    <!-- end of row -->
+</div>

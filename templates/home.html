@@ -1,0 +1,263 @@
+<div class="container-fluid" ng-controller="homeCtrl">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="home-top-ad">
+                <!-- Possible AD directive -->
+                <div class="ad">
+                    <a ng-href="{{top_ad_url}}">
+                        <img ng-src="{{top_ad_img}}" alt="">
+                    </a>
+                </div>
+                <!-- end of ad -->
+            </div>
+            <!-- end of home top ad -->
+        </div>
+        <!-- end of col-md-12 -->
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="home-video-section">
+                <div class="home-video-container">
+                    <videogular>
+                        <vg-media vg-src="config.sources"></vg-media>
+                        <vg-controls vg-autohide="config.plugins.controls.autoHide" vg-autohide-time="config.plugins.controls.autoHideTime">
+                            <vg-play-pause-button></vg-play-pause-button>
+                            <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+                            <vg-scrub-bar>
+                                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                            </vg-scrub-bar>
+                            <vg-time-display>{{ timeLeft | date: 'mm:ss' }}</vg-time-display>
+                            <vg-volume>
+                                <vg-mute-button></vg-mute-button>
+                                <vg-volume-bar></vg-volume-bar>
+                            </vg-volume>
+                            <vg-fullscreen-button></vg-fullscreen-button>
+                        </vg-controls>
+                    </videogular>
+                </div>
+                <!-- end of home video container -->
+            </div>
+            <!-- end of home video section -->
+        </div>
+        <!-- end of col-md-12 -->
+        <div class="col-md-4 col-md-offset-4">
+            <div class="see-all-container">
+                <button class="btn see-all-btn" ui-sref="videos">See All Videos</button>
+            </div>
+            <!-- end of see all container -->
+        </div>
+        <!-- end col-md-4 -->
+        <div class="col-md-4 col-md-offset-4">
+            <div class="contributeBtn-home-container">
+                <button class="contributeBtn" ui-sref="contribute">Contribute to HER - Upload Your Video</button>
+            </div>
+            <!-- end of contributeBtn container -->
+        </div>
+        <!-- end of col-md-4 -->
+    </div>
+    <!-- end of row -->
+    <div class="row">
+        <div class="sign-up-section">
+            <div class="sign-up-container">
+                <h2 class="sign-up-header">Keep Up With <span class="her-header">HER!</span></h2>
+                <!--<form ng-submit="processSignUp()" class="sign-up-form">
+                    <input type="text" name="sign-up-name" class="sign-up-name" placeholder="Your Name" ng-model="signUpData.name">
+                    <input type="email" name="sign-up-email" class="sign-up-email" placeholder="Email Address" ng-model="signUpData.email">
+                    <button class="sign-up-btn">Sign Me Up!</button>             
+                </form>-->
+                <!-- Begin MailChimp Signup Form -->
+                <div id="mc_embed_signup">
+                    <form action="//watchherwork.us10.list-manage.com/subscribe/post?u=6b7146de24eed617f953ac58c&amp;id=07ce55e175" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate sign-up-form" target="_blank" novalidate>
+                        <div id="mc_embed_signup_scroll">
+                            <div class="mc-field-group">
+                                <input type="email" value="" placeholder="Email Address" name="EMAIL" class="required email sign-up-email" id="mce-EMAIL">
+                            </div>
+                            <div class="mc-field-group">
+                                <input type="text" value="" placeholder="Your Name" name="MMERGE1" class="required sign-up-name" id="mce-MMERGE1">
+                            </div>
+                            <div id="mce-responses" class="clear">
+                                <div class="response" id="mce-error-response" style="display:none"></div>
+                                <div class="response" id="mce-success-response" style="display:none"></div>
+                            </div>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                <input type="text" name="b_6b7146de24eed617f953ac58c_07ce55e175" tabindex="-1" value="">
+                            </div>
+                            <div class="clear">
+                                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button sign-up-btn">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- end of sign up container -->
+        </div>
+        <!-- end of sign up section -->
+    </div>
+    <!-- end of row -->
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="her-title-container">
+                <h1>Read About <span class="her-header">HER</span></h1>
+            </div>
+            <!-- end of read-title-container -->
+        </div>
+        <!-- end of col-md-4 -->
+    </div>
+    <!-- end of row -->
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 home-article-container">
+            <div class="home-article-box" ng-repeat="article in articles | limitTo : 6">
+                <!-- create an array of articles and an array of of ad articles
+                    push an ad article to second index of articles array
+                    articles array holds 5 items, pushed ad makes 6
+                    pushed all 6 articles into an object that on 
+                    Ad content has a true value for isAd key -->
+                <div class="home-article-img-container">
+                    <img ng-src="{{article.acf.article_image.url}}" alt="" class="home-article-img">
+                </div>
+                <div class="home-article-content">
+                    <div class="home-article-header-container">
+                        <h2>{{article.title.rendered}}</h2>
+                        <p ng-show='article.acf.is_this_an_advertisement' class="sponsors-name"><i class="fa fa-star-o sponsor-icon"></i>Sponsored by {{article.acf.sponsors_name}}</p>
+                    </div>
+                    <div class="home-article-excerpt">
+                        <p ng-bind-html="article.excerpt.rendered | to_trusted">
+                            {{article.excerpt.rendered}}
+                        </p>
+                    </div>
+                </div>
+                <!-- end of article content -->
+                <div class="article-btn-sect">
+                    <button class="home-read-more-btn" ui-sref="article({id:article.id})">Read More</button>
+                </div>
+            </div>
+            <!-- end of article box -->
+        </div>
+        <!-- end of home-article-container -->
+        <div class="col-md-4 col-md-offset-4">
+            <div class="see-all-container">
+                <button class="btn see-all-btn" ui-sref="articles">See All Articles</button>
+            </div>
+            <!-- end of see all container -->
+        </div>
+        <!-- end col-md-4 -->
+    </div>
+    <!-- end of row -->
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 ad-poll-sect">
+            <div class="home-second-ad-container">
+                <a ng-href="{{second_ad_url}}">
+                    <img ng-src="{{second_ad_img}}" alt="ad-2" class="second-ad-img">
+                </a>
+            </div>
+            <!-- end of home-second-ad-container -->
+            <div class="home-poll-container">
+                <div class="poll-box" ng-controller="pollCtrl">
+                    <div class="poll-logo-box">
+                        <img ng-src="{{poll_logo}}" alt="">
+                        <p>POLL</p>
+                    </div>
+                    <!-- end of poll-logo-box -->
+                    <div class="poll-question-container">
+                        <p>{{pollQuestion}}</p>
+                    </div>
+                    <!-- end of poll-question-container -->
+                    <div class="answer-section">
+                        <!-- poll name may have to be a variable -->
+                        <form name="poll" class="home-poll-form">
+                            <label ng-repeat="(i, answer) in pollAnswers track by $index">
+                                <input type="radio" name="poll-answer" value="{{answer}}"> {{answer}}
+                            </label>
+                        </form>
+                    </div>
+                    <!-- end of answer section -->
+                    <div class="vote-btn-container">
+                        <button class="vote-btn">Vote</button>
+                    </div>
+                    <!-- end of vote btn container -->
+                </div>
+                <!-- end of poll-box -->
+            </div>
+            <!-- end of home-poll-container -->
+        </div>
+        <!-- end of col-md-10 col-md-offset-1 ad-poll-sect -->
+    </div>
+    <!-- end of row -->
+    <div class="row">
+        <div class="donate-section back-tint" ng-cloak ng-style="get_involved_load">
+            <div class="donate-container">
+                <h1>Get involved with <span class="her-header">HER</span></h1>
+                <div class="call-to-action-container">
+                    <div class="local-event-container">
+                        <img ng-src="{{event_icon}}" alt="" class="involved_icons">
+                        <button class="donate-btn" ui-sref="events">Events</button>
+                    </div>
+                    <div class="donate-cta-container">
+                        <img ng-src="{{donate_icon}}" alt="" class="involved_icons">
+                        <a class="donate-btn" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L6M38LAXGVP8N">Donate</a>
+                    </div>
+                    <div class="question-container">
+                        <img ng-src="{{question_icon}}" alt="" class="involved_icons">
+                        <button class="donate-btn" ui-sref="forhim">Ask A Question</button>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end of donate container -->
+        </div>
+        <!-- donate section -->
+    </div>
+    <!-- end of row -->
+    <div class="row">
+        <div class="instagram-section">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="her-title-container">
+                    <h1><span class="her-header">HER</span> Moves On Instagram</h1>
+                </div>
+                <!-- end of read-title-container -->
+            </div>
+            <!-- end of col-md-4 -->
+            <div class="col-md-12" ng-bind-html="instagram_feed | to_trusted">
+
+            </div>
+        </div>
+        <!-- end of instagram section -->
+    </div>
+    <!-- end of row -->
+    <div class="row">
+        <div class="col-md-12 twit-pin-section">
+            <div class="twitter-container">
+                <div class="col-md-6">
+                    <div class="her-title-container">
+                        <h1><span class="her-header">HER</span> Tweet Talk</h1>
+                    </div>
+                    <!-- end of read-title-container -->
+                </div>
+
+                <div ng-bind-html="twitter_feed | to_trusted">
+
+                </div>
+            </div>
+
+            <!-- end of twitter container -->
+            <div class="pinterest-container">
+                <div class="col-md-6">
+                    <div class="her-title-container">
+                        <h1><span class="her-header">HER</span> Points Of Pinterest</h1>
+                    </div>
+                    <!-- end of read-title-container -->
+                </div>
+                <div class="pinterest-grid">
+                    <div class="pin-img-container" ng-bind-html="pinterest_feed | to_trusted">
+
+                    </div>
+                </div>
+                <!-- end of pinterest grid -->
+            </div>
+            <!-- end of pinterest container -->
+        </div>
+        <!-- end of twit-pin-section -->
+    </div>
+    <!-- end of row -->
+</div>

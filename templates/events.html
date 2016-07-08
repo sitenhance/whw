@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="event-section">
+            <div class="col-md-11">
+                <div class="event-container" ng-repeat="eventMonth in eventMonths">
+                    
+                    <div class="event-header">
+                        <div class="event-header-container">
+                            <h1>{{eventMonth.month}}</h1>
+                        </div><!-- end of event header container -->
+                    </div><!-- end of event header -->
+                    <div class="single-event">
+                        <div class="event-details" ng-repeat="event in eventMonth.items">
+                            <div class="event-image">
+                                <div class="event-image-container">
+                                    <img ng-src="{{event.acf.event_image.sizes.medium}}" alt="">
+                                </div>
+                            </div>
+                            <!-- endof event image -->
+                            <div class="event-info">
+                                <div class="event-title">
+                                    <h2>{{event.acf.event_name}}</h2>
+                                    <p>{{event.acf.event_full_date}}</p>
+                                </div>
+                                <div class="event-description" ng-bind-html=" event.acf.event_description | to_trusted">
+                                </div>
+                                <div class="event-details-button-container">
+                                    <button class='event-details-btn' ui-sref="event({id:event.id})">Event Details</button>
+                                </div>
+                                <!-- end of event details button container -->
+                            </div>
+                            <!-- end of event info -->
+                        </div>
+                        <!-- end of event details -->
+                    </div>
+                </div><!-- end of event container -->
+                <div class="event-ad-section">
+                    <div class="ad-container">
+                        <a ng-href="{{events_ad_url}}">
+                            <img ng-src="{{events_ad}}" alt="">
+                        </a>
+                    </div>
+                </div>
+                <!-- end of event container -->
+            </div><!-- end of col-md-10 -->
+        </div><!-- end of event section -->
+    </div><!-- end of row -->
+</div>

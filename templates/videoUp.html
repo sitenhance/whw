@@ -1,0 +1,80 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="her-title-container">
+                <h1>Video Upload</h1>
+            </div>
+            <!-- end of read-title-container -->
+        </div>
+        <!-- end of col md 4 -->
+    </div>
+    <!-- end of row -->
+    <div class="row">
+        <div class="col-md-12">
+            <div ng-bind-html="video_upload | to_trusted">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <img ng-src="{{feedback_image}}" alt="">
+            </div>
+            <div ng-bind-html="feedback_description | to_trusted">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- beginning of form -->
+                        <div class="form-section">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input type="text" name="name" ng-model="requestName" required class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" name="email" ng-model="requestEmail" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="position">Position:</label>
+                                    <input type="text" name="position" ng-model="requestPosition" required class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="company">Company:</label>
+                                    <input type="text" name="company" ng-model="requestCompany" required class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <textarea name="description" ng-model="requestDesc" class="form-control" cols="30" rows="10" ng-change="newDesc()"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="3000000">
+                                    <label for="imgUpload">Upload A Video:</label>
+                                    <input type="file" ngf-select ng-model="Files" name="Files" ngf-max-size="500000MB" class="form-control">
+                                    *Please upload a file under 100MB
+                                    <progress class="progress" role="progressbar" value="{{Progress}}" max="100">
+                                    {{Progress | number: 0}}%
+                                    </progress>
+                                    <div role="alert" ng-show="Progress == 100 && !Success" class="notification is-info">
+                                        <button class="delete"></button> Processing, please wait
+                                    </div>
+                                    <div class="notification is-success" ng-show="Success">
+                                        <button class="delete"></button> Upload Complete!
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-4">
+                                        <!--<input type="submit" name="request" class="btn cont-btn" ng-click="uploadFiles(Files)" ngf-multiple="false">-->
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of col-md-12 -->
+            </div>
+            <!-- end of row -->
+        </div>
+    </div>
+</div>

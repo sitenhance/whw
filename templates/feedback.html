@@ -1,0 +1,78 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="her-title-container">
+                <h1>Site Feedback</h1>
+            </div>
+            <!-- end of read-title-container -->
+        </div>
+        <!-- end of col md 4 -->
+    </div>
+    <!-- end of row -->
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div>
+                <img ng-src="{{feedback_image}}" alt="">
+            </div>
+            <div ng-bind-html="feedback_description | to_trusted">
+            </div>
+            <div class="form-style-10">
+                <h1>Feedback Form<span>Tell us what you think about the site!</span></h1>
+                <form ng-submit="submitFeedback()" ng-hide="emailSent">
+                    <div class="section"><span>1</span>Name &amp; Email</div>
+                    <div class="inner-wrap">
+                        <div id="name-group" class="form-group" ng-class="{ 'has-error' : errorName }">
+                            <label>Your Full Name
+                                <input type="text" name="name" class="form-control" placeholder="Your Name" ng-model="formData.name" />
+                            </label>
+                            <span class="help-block" ng-show="errorName"></span>
+                        </div>
+                        <div id="email-group" class="form-group" ng-class="{ 'has-error' : errorEmail }">
+                            <label>Email Address
+                                <input type="email" name="email" class="form-control" placeholder="Email Address" ng-model="formData.email" />
+                            </label>
+                            <span class="help-block" ng-show="errorSuperhero"></span>
+                        </div>
+                    </div>
+
+                    <div class="section"><span>2</span>Category &amp; Comment</div>
+                    <div class="inner-wrap">
+                       <div id="category-group" class="form-group" ng-class="{ 'has-error' : errorCategory }">
+                        <label for="category">Category:
+                            <select id="category" name="category" ng-model="formData.category">
+                                <optgroup label="Comment">
+                                    <option value="general_comment">General Comment</option>
+                                    <option value="question">Question</option>
+                                    <option value="reccomendation">Recommendation</option>
+                                </optgroup>
+                                <optgroup label="Bug">
+                                    <option value="crash">Crash</option>
+                                    <option value="error">Error</option>
+                                    <option value="loading">Not Loading</option>
+                                    <option value="missing">Missing Element</option>
+                                </optgroup>
+                            </select>
+                        </label>
+                        </div>
+                        <div id="content-group" class="form-group" ng-class="{ 'has-error' : errorContent }">
+                            <label for="content">Comment:
+                                <textarea name="content" class="form-control" placeholder="Enter your message" ng-model="formData.content"></textarea>
+                            </label>
+                            <span class="help-block" ng-show="errorContent"></span>
+                        </div>
+                    </div>
+
+                    <div class="button-section">
+                        <input type="submit" name="Feedback_Send"/>
+                    </div>
+                </form>
+                <div class="contactSubmissionText" ng-show="emailSent">
+                    <p>{{message}}</p>
+                </div>
+            </div>
+            <!-- end of form-style-10 -->
+        </div>
+        <!-- end of col-md-12 -->
+    </div>
+    <!-- end of row -->
+</div>

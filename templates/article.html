@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <div class="row single-article-view">
+        <div class="col-md-8 col-md-offset-1">
+            <div class="article-section">
+                <div class="article-title-section">
+                    <h1>{{articleTitle}}</h1>
+                </div>
+                <!-- end of article title section -->
+                <div class="article-author-section">
+                    <div class="author-img-container" ui-sref="author({id: authorId})">
+                        <div class="article-author-image" style="background: url({{authorImgThumb}}) no-repeat center;"></div>
+                    </div>
+                    <p ui-sref="author({id: authorId})">{{authorName}}</p>
+                </div>
+                <!-- end of article author section -->
+                <div class="article-img-section">
+                    <img ng-src="{{articleImage}}" alt="">
+                </div>
+                <!-- end of article img section -->
+                <div class="article-content-section" ng-bind-html="articleContent | to_trusted">
+                </div>
+                <!-- end of article content section -->
+                <div class="article-social-section">
+                    <a ng-href="https://www.facebook.com/sharer/sharer.php?u={{formattedUrl}}" class="share-facebook-icon share-icons">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a ng-href="https://twitter.com/intent/tweet?via=WatchHerWorking&text={{twitterTitle}}&url={{formattedUrl}}" class="share-twitter-icon share-icons">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a ng-href="https://plus.google.com/share?url={{formattedUrl}}" class="share-icons share-google-icon">
+                        <i class="fa fa-google-plus" aria-hidden="true"></i>
+                    </a>
+                    <a href="//www.pinterest.com/pin/create/button/?url={{formattedUrl}}&media={{articleImage}}&description={{filteredContent}}" data-pin-do="buttonPin" data-pin-config="" data-pin-shape="round" target="_blank" class="share-pinterest-icon share-icons">
+                        <i class="fa fa-pinterest"></i>
+                    </a>
+                    <a ng-href="mailto:?subject=Check out this lesson from WatchHERWork &amp;body=I found this great link and thought you might enjoy it! {{formattedUrl}}" title="Share by Email" class="share-icons share-email-icon">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <!-- end of article social section -->
+                <div class="article-comments-section">
+                </div>
+                <!-- end of article comments section -->
+            </div>
+            <!-- end of articles section -->
+        </div>
+        <!-- end of col md 8 -->
+        <div class="col-md-3 single-article-ad-container">
+            <div class="rect-ad-container">
+                <a ng-href="{{singleAdOneUrl}}">
+                    <img src="{{articleAdRect}}" alt="">
+                </a>
+            </div>
+            <div class="rect-ad-container">
+                <a ng-href="{{singleAdTwoUrl}}">
+                    <img src="{{articleAdTwoRect}}" alt="">
+                </a>
+            </div>
+        </div>
+        <!-- end of row -->
+    </div>
+    <div class="row comments-section">
+        <div class=" col-md-8 col-md-offset-1 fb-zone">
+            <!-- Facebook Comments -->
+            <div class="fb-comments" ng-if="pluginOn" onrender="rendered()" data-href="{{currentUrl}}" data-numposts="100">
+            </div>
+            <!-- End of Facebook Comments -->
+        </div>
+    </div>
+    <!-- end of row -->
+    <!-- End of single-article-view -->
+</div>

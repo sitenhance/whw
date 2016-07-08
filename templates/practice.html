@@ -1,0 +1,50 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="her-title-container">
+                <h1>Practice</h1>
+            </div>
+            <!-- end of read-title-container -->
+        </div>
+        <!-- end of col md 4 -->
+    </div>
+    <!-- end of row -->
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <p>{{instagram_title}}</p>
+            </div>
+            <div ng-bind-html="instagram_feed | to_trusted">
+            </div>
+            <div ng-bind-html="comments | to_trusted">
+            </div>
+            <div ng-repeat="comment in comments">
+                <p>Date: {{comment.post_date}}</p>
+                <p>{{comment.post_title}}</p>
+                <p>{{comment.post_content}}</p>
+                <p>{{comment.comment_count}}</p>
+            </div>
+            <h2>Item:</h2>
+            <section>
+                <article class="well" ng-repeat="post in posts">
+                    <header>
+                        <h1 ng-bind-html="post.title.rendered">
+				{{post.title.rendered}}
+			</h1>
+                    </header>
+                    <div class="post-content" ng-bind-html="post.excerpt.rendered">
+                        {{post.excerpt.rendered}}
+                    </div>
+                </article>
+            </section>
+            <div class="fb-comments" data-href="https://watchherwork.com/sitenhance/" data-numposts="5"></div>
+            <div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
+            </div>
+
+        </div>
+        <!-- end of col-md-12 -->
+    </div>
+
+    <!-- end of row -->
+</div>

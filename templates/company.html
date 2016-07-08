@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="her-title-container">
+                <h1>The Company</h1>
+            </div>
+            <!-- end of read-title-container -->
+        </div><!-- end of col md 4 -->
+    </div><!-- end of row -->
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div>
+            <img class="company-image" ng-src="{{company_image}}" alt="">
+            </div>
+            <div ng-bind-html="company_description | to_trusted">
+            </div>
+        </div><!-- end of col-md-12 -->
+    </div><!-- end of row -->
+    
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="featured-header">
+                <div class="her-title-container">
+                    <h1>Leadership</h1>
+                </div>
+            </div>
+            <!-- end of featured header -->
+        </div>
+        <div class="col-md-10 col-md-offset-1">
+            <div class="meet-founder-section">
+                <div class="founder-info-container">
+                    <div class="founder-image-container">
+                        <div class="founder-image-display">
+                            <img src="{{founderImage}}" alt="">
+                        </div>
+                    </div>
+                    <div class="founder-info">
+                        <div class="founder-intro">
+                            <p class="founder-name">{{founderName}}</p>
+                            <p class="founder-title">{{foundersTitle}}</p>
+                        </div>
+                        <div class="founder-description-container">
+                            <div class="founder-description" ng-bind-html=" foundersBio | to_trusted"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of founder info -->
+            </div>
+        </div>
+    </div>
+    <!-- end of row -->
+    
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="featured-header">
+                <div class="her-title-container">
+                    <h1>Advisory Board</h1>
+                </div>
+            </div>
+            <!-- end of featured header -->
+        </div>
+        <div class="col-md-10 col-md-offset-1">
+            <div class="advisory-board-section">
+                <div class="advisory-members">
+                    <div class="advisory-member" ng-repeat="advisor in advisoryMembers" ui-sref="author({id: advisor.id})">
+                        <div class="advisory-member-image">
+                            <div class="advisor-img-display" style="background: url({{advisor.acf.author_image.sizes.thumbnail}}) no-repeat center;"></div>
+                        </div>
+                        <div class="advisory-member-name">
+                            <p>{{advisor.name}}</p>
+                        </div>
+                        <p>{{advisor.acf.job_title}}</p>
+                        <p>{{advisor.acf.authors_company}}</p>
+                        <p>{{advisor.acf.authors_city}}</p>
+                    </div><!-- end of advisory member -->
+                </div><!-- end of advisory memebers -->
+            </div><!-- end of advisory board section -->
+        </div><!-- end of col-md-10 -->
+    </div><!-- end of row -->
+    
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="her-title-container">
+                <h1>Services Provided</h1>
+            </div>
+            <!-- end of read-title-container -->
+        </div><!-- end of col md 4 -->
+        <div class="col-md-10 col-md-offset-1">
+            <div class="services-provided" ng-bind-html="services | to_trusted">
+            </div>
+        </div><!-- end of col-md-12 -->
+    </div><!-- end of row -->
+</div>

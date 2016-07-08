@@ -1,0 +1,81 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="for-him-intro-section">
+            <div class="col-md-9">
+                <div class="for-him-intro">
+                    <div class="for-him-intro-image">
+                        <img ng-src="{{bannerImage}}" alt="">
+                    </div><!-- end of for him intro image -->
+                    <div class="for-him-intro-description" ng-bind-html="himDescription | to_trusted">
+                    </div><!-- end of for him intro description -->
+                </div><!-- end of for him intro -->
+                <div class="for-him-question-catalog">
+                    <div class="question-catalog-header">
+                        <h3>Since you asked ...</h3>
+                    </div>
+                    <!-- end of question catalog header -->
+                    <div class="question-asked-container" ng-repeat="question in forHimPosts | limitTo: post_per_load">
+                        <div class="question-asked-image">
+                            <img ng-src="{{question.acf.for_him_post_image.sizes.medium}}" alt="">
+                        </div>
+                        <div class="question-asked-description">
+                            <div class="question-asked-header">
+                                <h3>{{question.title.rendered}}</h3>
+                            </div>
+                            <!-- end of question asked header -->
+                            <div class="question-asked-description" ng-show="showAnswer === question.id" ng-bind-html="question.content.rendered | to_trusted">
+                            </div>
+                            <div class="answer-load-more-btn">
+                                <button answer-button ng-click="displayAnswer(question.id)">View Answer</button>
+                            </div>
+                        </div>
+                        <!-- end of question asked descriptioin -->
+                    </div>
+                    <!-- end of question-asked-container -->
+                    <div class="for-him-load-more-container">
+                        <button ng-click="loadMore()" ng-hide="hideAnswerLoadMoreBtn">Load More</button>
+                        <button ng-click="loadLess()" ng-show="post_per_load > 3">Load Less</button>
+                    </div>
+                    <!-- end of for him load more container -->
+                </div>
+                <!-- end of for him question catalog -->              
+            </div><!-- end of col-md 8 -->
+            <div class="col-md-3">
+                <div class="for-him-container">
+                    <div class="skyscraper-container">
+                        <a ng-href="{{himAdOneUrl}}">
+                            <img ng-src="{{himAdOneImage}}" alt="">
+                        </a>
+                    </div>
+                    <!-- end of skyscraper ad -->
+                    <div class="rectangle-container">
+                        <a ng-href="{{himAdTwoUrl}}">
+                            <img ng-src="{{himAdTwoImage}}" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div><!-- end of col md 2 -->
+        </div><!-- end of for-him-intro-section -->
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="for-him-ask-form">
+                <div class="ask-title">
+                    <h2>What's your question?</h2>
+                    <p>Don't worry we'll keep it on the hush-hush</p>
+                </div>
+                <div class="ask-form-container">
+                    <form ng-submit="submitQuestion()" class="ask-form" ng-hide="questionSubmitted">
+                        <input type="email" name="email" placeholder="Email Address" class="question-input" ng-model="myData.email" required>
+                        <input type="text" name="question" placeholder="Enter your question" class="question-input" ng-model="myData.question" required>
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="for-him-honey" tabindex="-1" value="" ng-model="formData.honey"></div>
+                        <input type="submit" class="ask-form-submit-btn" value="Ask Us!">
+                    </form>
+                    <div class="question-submitted-response" ng-show="questionSubmitted">
+                        <p>{{submissionMessage}}</p>
+                    </div>
+                </div><!-- end of ask form container -->
+            </div><!-- end of for him ask form -->
+        </div><!-- end of col md 8 -->
+    </div><!-- end of row -->
+</div>

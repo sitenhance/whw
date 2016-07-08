@@ -1,0 +1,129 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="results-counter-section">
+                <div class="results-header">
+                    <h3>Results ({{totalResults}})</h3>
+                </div><!-- end of results header -->
+                <div class="results-taxonomy">
+                    <div class="taxonomy">
+                        <p>articles ({{noOfArticles}})</p>
+                    </div><!-- end of taxonomy -->
+                    <div class="taxonomy">
+                        <p>videos ({{noOfVideos}})</p>
+                    </div>
+                    <!-- end of taxonomy -->
+                    <div class="taxonomy">
+                        <p>authors ({{noOfAuthors}})</p>
+                    </div>
+                    <!-- end of taxonomy -->
+                </div><!-- end of results taxonomy -->
+            </div><!-- end of results counter section -->
+        </div><!-- end of col md 2 -->
+        <div class="col-md-7">
+            <div class="results-section">
+                <div class="search-video-container">
+                    <div class="search-video-result">
+                        <div class="video-result-header">Videos:</div>
+                        <div class="video-result-container">
+                            <div class="video-result-box" ng-repeat="video in videoList | limitTo: video_per_page">
+                                <a ui-sref="video({id: video.id})">
+                                    <div class="video-result-section">
+                                        <div class="video-result-thumbnail">
+                                            <img ng-src="http://da1espy3sy55i.cloudfront.net/{{video.Thumbnail}}" alt="">
+                                        </div>
+                                        <!-- end of video result thumbnail -->
+                                        <div class="video-result-title">
+                                            <p>{{video.Title}}</p>
+                                        </div>
+                                        <!-- end of video result title -->
+                                    </div>
+                                    <!-- end of video result section -->
+                                </a>
+                            </div>
+                            <div class="no-video-results">
+                                <p>No matching videos available...</p>
+                            </div>
+                        </div>
+                    </div><!-- end of search video container -->
+                    <div class="load-more-container">
+                        <button class="load-more-btn" ng-click="loadMore('video')" ng-hide="hideVideoLoadMoreBtn">Show More</button>
+                        <button class="load-more-btn" ng-click="loadLess('video')" ng-show="video_per_page > 4">Show Less</button>
+                    </div><!-- end of load more container -->
+                </div><!-- end of search video container -->
+                <div class="search-article-container">
+                    <div class="article-result-header">Articles:</div>
+                    <div class="search-article-result" ng-repeat="article in articleList | limitTo: article_per_page">
+                        <a ui-sref="article({id:article.id})">
+                            <div class="article-result-section">
+                                <div class="article-result-image">
+                                    <img ng-src="{{article.acf.article_image.sizes.medium}}" alt="">
+                                </div>
+                                <!-- end of article result image -->
+                                <div class="article-result-content">
+                                    <div class="article-result-header">{{article.title.rendered}}</div>
+                                    <div class="article-result-copy" ng-bind-html="article.excerpt.rendered | to_trusted">
+                                    </div>
+                                    <div class="article-result-author">
+                                        <div class="article-author-image" style="background: url({{article.acf.authors_image.sizes.thumbnail}}) center;">
+                                        </div>
+                                        <p class="article-author-name">{{article.acf.author_name}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end of article result section -->
+                        </a>
+                    </div>
+                    <div class="no-article-results">
+                        <p>No matching articles available...</p>
+                    </div>
+                    <!-- end of search aticle result -->
+                    <div class="load-more-container">
+                        <button class="load-more-btn" ng-click="loadMore('article')" ng-hide="hideArticleLoadMoreBtn">Show More</button>
+                        <button class="load-more-btn" ng-click="loadLess('article')" ng-show="article_per_page > 3">Show Less</button>
+                    </div>
+                </div><!-- end of search article container -->
+                <div class="search-author-container">
+                    <div class="search-author-result">
+                        <div class="author-result-header">Authors:</div>
+                        <div class="author-result-container">
+                            <div class="author-result-content" ng-repeat="author in authorList | limitTo: author_per_page">
+                                <a ui-sref="author({id: author.id})">
+                                    <div class="author-result-image">
+                                        <div class="author-circ-image" style="background: url({{author.acf.author_image.sizes.medium}}) center no-repeat;"></div>
+                                    </div>
+                                    <div class="author-result-name">
+                                        <p>{{author.name}}</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="no-author-results">
+                                <p>No matching authors available...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="load-more-container">
+                        <button class="load-more-btn" ng-click="loadMore('author')" ng-hide="hideAuthorLoadMoreBtn">Show More</button>
+                        <button class="load-more-btn" ng-click="loadLess('author')" ng-show="author_per_page > 4">Show Less</button>
+                    </div>
+                </div>
+            </div>
+            <!-- end of results section -->
+        </div>
+        <!-- end of col md 7 -->
+        <div class="col-md-3">
+            <div class="search-results-ad-section">
+                <div class="top-ad-container">
+                    <a ng-href="{{topAdUrl}}">
+                        <img ng-src="{{topAdImage}}" alt="">
+                    </a>
+                </div>
+                <div class="second-ad-container">
+                    <a ng-href="{{secondAdUrl}}">
+                        <img src="{{secondAdImage}}" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end of row -->
+</div>

@@ -1,0 +1,155 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="her-title-container">
+                <h1>Video Upload</h1>
+            </div>
+            <!-- end of read-title-container -->
+        </div>
+        <!-- end of col md 4 -->
+    </div>
+    <!-- end of row -->
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <!-- Start of Event Registration -->
+            <div class="form-style-10">
+                <h1>Video Upload Form<span>Contribute to HER!</span></h1>
+                <form ng-hide="emailSent">
+                    <div class="section"><span>1</span>Author Information</div>
+                    <div class="inner-wrap">
+                        <div ng-class="{ 'has-error' : errorName }">
+                            <label>Author's Name
+                                <input type="text" name="name" class="form-control" placeholder="Author's Name" ng-model="formData.author" required/>
+                            </label>
+                            <span class="help-block" ng-show="errorName"></span>
+                        </div>
+
+                        <div id="jobTitle-group" class="form-group" ng-class="{ 'has-error' : errorJobTitle }">
+                            <label>Username
+                                <input type="text" name="username" class="form-control" placeholder="Enter Username" ng-model="formData.username" required/>
+                            </label>
+                        </div>                        
+
+                        <!--<div id="email-group" class="form-group" ng-class="{ 'has-error' : errorEmail }">
+                            <label>Email Address
+                                <input type="text" name="email" class="form-control" placeholder="Email Address" ng-model="formData.email"/>
+                            </label>
+                        </div>-->
+
+                        <div id="jobTitle-group" class="form-group" ng-class="{ 'has-error' : errorJobTitle }">
+                            <label>Title
+                                <input type="text" name="jobTitle" class="form-control" placeholder="Job Title" ng-model="formData.jobTitle" required/>
+                            </label>
+                        </div>
+                        <div id="company-group" class="form-group" ng-class="{ 'has-error' : errorCompany }">
+                            <label>Company
+                                <input type="text" name="company" class="form-control" placeholder="Company Name" ng-model="formData.company" required/>
+                            </label>
+                        </div>
+
+                        <!--<div id="bio-group" class="form-group" ng-class="{ 'has-error' : errorBio}">
+                            <label for="content">Author Bio:
+                                <textarea maxlength="250" name="bio" class="form-control" placeholder="Author Biography" ng-model="formData.bio" required></textarea>
+                            </label>
+                        </div>-->
+
+
+                        <!--<div id="socialmedia-group" class="form-group" ng-class="{ 'has-error' : errorSocialmedia }">
+                            <label>Social Media
+                                <input type="text" name="socialmedia" class="form-control" placeholder="Social Media" ng-model="formData.socialmedia" />
+                            </label>
+                        </div>-->
+
+                        <!--<div id="imgUpload-group" class="form-group">
+                            <label>Upload Author's Picture
+                                <input type="file" name="imgUpload" class="form-control" ng-model="formData.imgUpload" file-uploaded="uploadImg" required/>
+                            </label>
+                        </div>-->
+                    </div> <!-- End of inner wrap -->
+
+                    <div class="section"><span>2</span>Video Information</div>
+                    <div class="inner-wrap">
+                        <div id="title-group" class="form-group" ng-class="{ 'has-error' : errorTitle }">
+                            <label>Title
+                                <input type="text" name="title" class="form-control" placeholder="Title of Video" ng-model="formData.title" required />
+                            </label>
+                        </div>
+                        <div id="category-group" class="form-group" ng-class="{ 'has-error' : errorCategory }">
+                            <label for="category">Category:
+                                <select id="category" name="category" ng-model="formData.category" required>
+
+                                    <option value="Career Advancement">Career Advancement</option>
+                                    <option value="Caring Parents">Caring for Aging Parents</option>
+                                    <option value="Communication">Communication</option>
+                                    <option value="Compensation">Compensation</option>
+                                    <option value="Conflict">Conflict</option>
+                                    <option value="Cultural Differences">Cultural Differences</option>
+                                    <option value="Divorce">Divorce</option>
+                                    <option value="Entrepreneurship">Entrepreneurship</option>
+                                    <option value="Health">Health</option>
+                                    <option value="Image">Image</option>
+                                    <option value="Job Relocation">Job Relocation</option>
+                                    <option value="Leadership">Leadership</option>
+                                    <option value="Leisure">Leisure</option>
+                                    <option value="Managing Emotions">Managing Emotions</option>
+                                    <option value="Mentorship">Mentorship</option>
+                                    <option value="Networking">Networking</option>
+                                    <option value="Office Politics">Office Politics</option>
+                                    <option value="Office Romance">Office Romance</option>
+                                    <option value="Parenting">Parenting</option>
+                                    <option value="Personal Branding">Personal Branding</option>
+                                    <option value="Personal Finance">Personal Finance</option>
+                                    <option value="Pregnancy">Pregnancy</option>
+                                    <option value="Romantic Relationships">Romantic Relationships</option>
+                                    <option value="Sexual Harrasment">Sexual Harassment</option>
+                                    <option value="Single Life">Single Life</option>
+                                    <option value="Technology">Technology</option>
+                                    <option value="Workforce Reentry">Workforce Re-Entry</option>
+                                    <option value="Working With Men">Working with Men</option>
+                                    <option value="Working With Women">Working with Women</option>
+
+                                </select>
+                            </label>
+                        </div>
+                        <!--<div id="description-group" class="form-group" ng-class="{ 'has-error' : errorDescription}">
+                            <label for="content">Description:
+                                <textarea name="description" class="form-control" placeholder="Description of video" ng-model="formData.description"></textarea>
+                            </label>
+                        </div>-->
+                        
+                        <!--<div id="thumbUpload-group" class="form-group" ng-class="{ 'has-error' : errorThumb}">
+                            <label>Upload a User Thumbnail
+                                <input type="file" class="form-control" ngf-select ng-model="Thumbs" name="Thumbs" ngf-max-size="50000MB" required/>
+                            </label>
+                        </div>-->
+                       
+                        <div id="videoUpload-group" class="form-group">
+                            <label>Upload a Video
+                                <input type="file" class="form-control" ngf-select ng-model="videoData.video" name="Files" ngf-max-size="500000MB" required/>
+                            </label>
+                            <div id="loading-bar-container"></div>
+                            <div role="alert" ng-show="Progress == 100 && !Success" class="notification is-info">
+                                <button class="delete"></button> Processing, please wait
+                            </div>
+                            <div class="notification is-success" ng-show="Success">
+                                <button class="delete"></button> Upload Complete!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-section">
+                        <input type="submit" name="VideoUpload" ng-click="submitVideo()" />
+                    </div>
+                </form>
+                <div class="video-loading-message" ng-show="loadingVideo">
+                    <p>Your video is being uploaded</p>
+                </div>
+                <div class="contactSubmissionText" ng-show="finishedDownload">
+                    <p>It's done uploading!</p>
+                </div>
+            </div>
+            <!-- End of Event Registration -->
+        </div>
+        <!-- end of col-md-12 -->
+    </div>
+    <!-- end of row -->
+</div>

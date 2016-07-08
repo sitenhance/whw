@@ -1,0 +1,97 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="her-title-container">
+                <h1>Video Categories</h1>
+            </div>
+            <!-- end of her-title-container -->
+        </div>
+        <!-- end of col md 4 -->
+    </div>
+    <!-- end of row -->
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="contributeBtn-container">
+                <button class="contributeBtn" ui-sref="contribute">Contribute to HER - Upload Your Video</button>
+            </div>
+            <!-- end of contributeBtn container -->
+        </div>
+        <!-- end of col-md-4 -->
+    </div>
+    <!-- end of row -->
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="sorting-layout-section">
+                <div class="sorting-container">
+                    <p>Sort:</p>
+                    <div class="sort-btns">
+                        <button class="atozBtn" ng-click="sort('asc')" ng-class="{selected: asc===true}">A - Z</button>
+                        <button class="ztoaBtn" ng-click="sort('desc')" ng-class="{selected: desc===true}">Z - A</button>
+                    </div>
+                </div><!-- end of sorting container -->
+                <div class="layout-container">
+                    <p>Layout:</p>
+                    <div class="layout-btns">
+                        <button class="gridBtn" ng-click="setLayout('grid')" ng-class="{selected: grid===true}">Grid</button>
+                        <button class="listBtn" ng-click="setLayout('list')" ng-class="{selected: list===true}">List</button>
+                    </div>
+                </div><!-- end of layout container -->
+            </div><!-- end of sorting layout section -->
+        </div><!-- end of col-md-10 -->
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="video-grid" ng-class="{'list-layout': list===true}">
+                <div class="video-container" ng-repeat="videoCat in categoriesList | orderBy: 'title':doReverse">
+                    <a ui-sref="categories({category:videoCat.title})">
+                        <div class="video-thumb" ng-hide="list">
+                            <img ng-src="{{videoCat.sizes.medium}}" alt="">
+                        </div>
+                        <!-- end of thumb -->
+                        <div class="video-category-title">
+                            <p>{{videoCat.title}}</p>
+                        </div>
+                        <!-- end of category title -->
+                    </a>
+                </div>
+                <!-- end of video container -->
+            </div>
+        </div><!-- end of col md 10 -->
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="videos-poll-sect">
+                <div class="videos-second-ad-container">
+                    <a ng-href="{{second_ad_url}}" target="_blank">
+                        <img ng-src="{{second_ad_image}}" alt="ad-2" class="second-ad-img">
+                    </a>
+                </div>
+                <!-- end of videos-second-ad-container -->
+                <div class="videos-poll-container">
+                    <div class="videos-poll-box" ng-controller="pollCtrl">
+                        <div class="videos-poll-logo-box">
+                            <img ng-src="{{videos_poll_logo}}" alt="">
+                            <p>POLL</p>
+                        </div>
+                        <div class="videos-poll-question-container">
+                            <p>{{pollQuestion}}</p>
+                        </div>
+                        <div class="videos-answer-section">
+                            <form name="video-poll" class="videos-poll-form">
+                                <label ng-repeat="(i, answer) in pollAnswers track by $index">
+                                    <input type="radio" name="poll-answer" value="{{answer}}">
+                                    {{answer}}
+                                </label>
+                            </form>
+                        </div>
+                        <div class="vote-btn-container">
+                            <button class="videos-vote-btn">
+                                                                    Vote
+                                                                </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- end of row -->
+</div>
