@@ -44,6 +44,8 @@ $data = array(); 		// array to pass back data
                 $data['email'] = $_POST['email'];
                 $data['name'] = $_POST['name'];
                 $data['guests'] = $_REQUEST['guests'];
+                $data['post'] = $_POST;
+                
 		    }
 		
 	}
