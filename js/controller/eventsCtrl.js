@@ -38,6 +38,7 @@
         } else {
             postsService.getPost.get({ID: $stateParams.id}, function(res) {
                 $scope.eventName = res.acf.event_name;
+                $scope.formData.event_name = $scope.eventName;
                 $scope.eventImage = res.acf.event_image.sizes.medium_large;
                 $scope.eventDescription = res.acf.event_description;
                 $scope.eventLocation = res.acf.event_location;
@@ -71,7 +72,8 @@
             $scope.events_ad = res.acf.event_page_ad_image.url;
             $scope.events_ad_url = res.acf.event_page_ad_url;
         });
-         
+        
+        $scope.formData = {};
         /* Event Registration */
         $scope.emailSent = false;
         $scope.submitRegistration = function() {
