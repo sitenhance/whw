@@ -48,16 +48,16 @@
                 $scope.hostsTitle = res.acf.hosts_title;
                 $scope.hostsDescription = res.acf.hosts_description;
                 $scope.hostsImage = res.acf.hosts_image.sizes.thumbnail;
-                var geocoder = new google.maps.Geocoder();
-                geocoder.geocode({'address': $scope.eventLocation}, function(result, status) {
-                    $scope.lat = result[0].geometry.location.lat();
-                    $scope.long = result[0].geometry.location.lng();
-                    $scope.marker = {
-                        id: 0,
-                        coords: {latitude: $scope.lat, longitude: $scope.long}
-                    };
-                    $scope.map = { center: { latitude: $scope.lat, longitude: $scope.long }, zoom: 15 };
-                });
+//                var geocoder = new google.maps.Geocoder();
+//                geocoder.geocode({'address': $scope.eventLocation}, function(result, status) {
+//                    $scope.lat = result[0].geometry.location.lat();
+//                    $scope.long = result[0].geometry.location.lng();
+//                    $scope.marker = {
+//                        id: 0,
+//                        coords: {latitude: $scope.lat, longitude: $scope.long}
+//                    };
+//                    $scope.map = { center: { latitude: $scope.lat, longitude: $scope.long }, zoom: 15 };
+//                });
                 pagesService.eventPage.get(function (res) {
                     $scope.topAdImage = res.acf.top_ad_image.url;
                     $scope.topAdUrl = res.acf.top_ad_url;
@@ -86,8 +86,10 @@
             .success(function(data) {
                 console.log(data);
                 if(!data.success) {
-                    $scope.errorName = data.errors.name;
+                    //$scope.errorName = data.errors.name;
                     $scope.errorEmail = data.errors.email;
+                    $scope.post = data;
+                    console.log($scope.post);
                 } else {
                     $scope.message = data.message;
                     $scope.emailSent = true;
