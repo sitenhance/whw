@@ -22,17 +22,18 @@ $data = array(); 		// array to pass back data
         $mail->IsSMTP(); // enable SMTP
 		$mail->SMTPAuth = true; // authentication enabled
 		$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+//        $mail->SMTPDebug = 2;
 		$mail->Host = "smtp.gmail.com";
 		$mail->Port = 465; // or 587
 		$mail->isHTML(true);
         $mail->setFrom($_POST['email'], $_POST['email']);
-		$mail->Username = "alpham79@gmail.com"; //Email that you setup
-		$mail->Password = "G00gl3l0gp@$$"; // Password
+		$mail->Username = "kfliphtx@gmail.com"; //Email that you setup
+		$mail->Password = "javascript7!"; // Password
 		$mail->Subject = "WatchHerWork Registration Email From " . $_POST['name']."";
 		$mail->Body = "<strong>Name: </strong>".$_REQUEST['name']. "<br>";
         $mail->Body = "<strong>Email: </strong>".$_POST['email']. "<br>";
         $mail->Body = "<strong>Guests: </strong>".$_REQUEST['guests'];
-		$mail->AddAddress("alpham79@gmail.com"); //Pass the e-mail that you setup
+		$mail->AddAddress("kfliphtx@gmail.com"); //Pass the e-mail that you setup
 		 if(!$mail->Send())
 		    {
 		    		echo "Mailer Error: " . $mail->ErrorInfo;
