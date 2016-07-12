@@ -11,12 +11,13 @@
             $scope.media_kit = res.acf.media_kit;
             $scope.social = res.acf.social;
 
-            $scope.featuredImages = _.chain(res.acf.featured_images[0])
-                .filter(function (item) {
-                        return item;
-                    })
-                    .value();
+//            $scope.featuredImages = _.chain(res.acf.featured_images[0])
+//                .filter(function (item) {
+//                        return item;
+//                    })
+//                    .value();
             
+            $scope.featuredImages = res.acf.featured_images;
             $scope.downloadImages = res.acf.download_images;
             
             //            $scope.featuredLogos = [];
