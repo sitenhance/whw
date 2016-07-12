@@ -13,14 +13,9 @@
     <div class="row">
         <div class="col-md-7">
             <div class="press-featured-shelf">
-                <div class="press-watch-box">
-                    <a href="{{pressImage1url}}" target="_blank">
-                        <img ng-src="{{pressImage1}}" alt="">
-                    </a>
-                </div>
-                <div class="press-watch-box">
-                    <a href="{{pressImage2url}}" target="_blank">
-                        <img ng-src="{{pressImage2}}" alt="">
+                <div class="press-watch-box" ng-repeat="pressImg in pressImages">
+                    <a href="{{pressImg.press_image_url}}" target="_blank">
+                        <img ng-src="{{pressImg.press_image.url}}" alt="">
                     </a>
                 </div>
             </div>
@@ -49,7 +44,7 @@
             <div class="press-featured-shelf">
                 <div class="press-featured-box">
                     <div class="press-featured-logo" ng-repeat="featuredImg in featuredImages">
-                        <a href="{{featuredImg.featured_image_url}}">
+                        <a href="{{featuredImg.featured_image_url}}" target="_blank">
                             <img ng-src="{{featuredImg.featured_image.url}}" alt="">
                         </a>
                     </div>
@@ -85,7 +80,7 @@
                 <div class="press-featured-shelf">
                     <div class="press-featured-box">
                         <div class="press-featured-logo" ng-repeat="downloadImg in downloadImages">
-                            <a href="{{downloadImg.download_image_url}}">
+                            <a href="{{downloadImg.download_image_url}}" target="_blank">
                                 <img ng-src="{{downloadImg.download_image.url}}" alt="">
                             </a>
                         </div>
