@@ -19,13 +19,12 @@ $data = array(); 		// array to pass back data
 		
 	} else {
 		$mail = new PHPMailer(); // create a new object
-		// $mail->IsSMTP(); // enable SMTP
+        $mail->IsSMTP(); // enable SMTP
 		$mail->SMTPAuth = true; // authentication enabled
 		$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
 		$mail->Host = "smtp.gmail.com";
 		$mail->Port = 465; // or 587
-		$mail->IsHTML(true);
-        $mail->isSMTP(); // enable SMTP
+		$mail->isHTML(true);
         $mail->setFrom($_POST['email'], $_POST['email']);
 		$mail->Username = "alpham79@gmail.com"; //Email that you setup
 		$mail->Password = "G00gl3l0gp@$$"; // Password
