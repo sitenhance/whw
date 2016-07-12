@@ -23,17 +23,18 @@
                 return keyValue;
             });
             
-            $scope.featuredLogos = [];
-            
-            //Gather Featured Logos Acf fields
-            _.map(acfObject, function (num) {
-                var objValues = _.values(num);
-                if (objValues[0].indexOf('logo_') != -1) {
-                    if (!_.isUndefined(objValues)) {
-                        $scope.featuredLogos.push(objValues[1]);
-                    }
-                }
-            });
+//            $scope.featuredLogos = [];
+//            
+//            //Gather Featured Logos Acf fields
+//            _.map(acfObject, function (num) {
+//                var objValues = _.values(num);
+//                if (objValues[0].indexOf('logo_') != -1) {
+//                    if (!_.isUndefined(objValues)) {
+//                        $scope.featuredLogos.push(objValues[1]);
+//                    }
+//                }
+//            });
+            $scope.featuredLogos = res.acf.featured_logos;
             
         });
         

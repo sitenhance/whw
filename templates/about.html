@@ -58,7 +58,9 @@
                 <div class="featured-shelf">
                     <div class="featured-box">
                         <div class="featured-logo" ng-repeat="logo in featuredLogos">
-                            <img ng-src="{{logo.url}}" alt="">
+                           <a href="{{logo.featured_logo_url}}" target="_blank">
+                            <img ng-src="{{logo.featured_logo.url}}" alt="">
+                            </a>
                         </div>
                         <!-- end of featured logo -->
                     </div>
