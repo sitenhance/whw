@@ -3336,6 +3336,13 @@ div.press-featured-shelf {
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
+div.press-watch-shelf {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 div.press-featured-box {
     display: flex;
     flex-direction: row;
@@ -3352,8 +3359,14 @@ div.press-featured-logo {
     margin-bottom: 2em;
 }
 
+div.press-watch-box a {
+    display: block;
+    margin-right: .5em;
+}
+
 div.press-watch-box img {
     margin-top: -1em;
+    width: 100%;
 }
 
 div.press-featured-box img {
