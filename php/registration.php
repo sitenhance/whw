@@ -30,9 +30,10 @@ $data = array(); 		// array to pass back data
 		$mail->Username = "kfliphtx@gmail.com"; //Email that you setup
 		$mail->Password = "javascript7!"; // Password
 		$mail->Subject = "WatchHerWork Registration Email From " . $_POST['name']."";
-		$mail->Body = "<strong>Name: </strong>".$_REQUEST['name']. "<br>";
-        $mail->Body = "<strong>Email: </strong>".$_POST['email']. "<br>";
-        $mail->Body = "<strong>Guests: </strong>".$_REQUEST['guests'];
+		$mail->Body .= "<strong>Name: </strong>".$_REQUEST['name']. "<br>";
+        $mail->Body .= "<strong>Email: </strong>".$_POST['email']. "<br>";
+        $mail->Body .= "<strong>Event: </strong>".$_POST['eventName']. "<br>";
+        $mail->Body .= "<strong>Guests: </strong>".$_REQUEST['guests'];
 		$mail->AddAddress("kfliphtx@gmail.com"); //Pass the e-mail that you setup
 		 if(!$mail->Send())
 		    {

@@ -88,8 +88,8 @@
                 if(!data.success) {
                     //$scope.errorName = data.errors.name;
 //                    $scope.errorEmail = data.errors.email;
-//                    $scope.post = data;
-//                    console.log($scope.post);
+                    $scope.post = data;
+                    console.log($scope.post);
                 } else {
                     $scope.message = data.message;
                     $scope.emailSent = true;
