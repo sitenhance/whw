@@ -31,7 +31,7 @@ $data = array(); 		// array to pass back data
 		$mail->Username = "alpham79@gmail.com"; //Email that you setup
 		$mail->Password = "G00gl3l0gp@$$"; // Password
 		$mail->Subject = "WatchHerWork Video Upload Email From " . $_POST['name']."";
-		$mail->Body = "<strong>Name: </strong>".$_REQUEST['name']. "<br>";
+		$mail->Body .= "<strong>Name: </strong>".$_REQUEST['name']. "<br>";
         $mail->Body .= "<strong>Email: </strong>".$_POST['email']. "<br>";
         $mail->Body .= "<strong>Description: </strong>".$_REQUEST['description'];
 		$mail->AddAddress("alpham79@gmail.com"); //Pass the e-mail that you setup
