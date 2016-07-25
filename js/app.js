@@ -1,5 +1,5 @@
 var whwApp = angular.module('whwApp', ['ui.router', 'ngResource', 'ngSanitize', 'com.2fdevs.videogular',
- 'com.2fdevs.videogular.plugins.controls', 'com.2fdevs.videogular.plugins.poster', 'ui.bootstrap', 'ui.bootstrap.tpls', 'uiGmapgoogle-maps', 'djds4rce.angular-socialshare', 'ezfb', 'ngFileUpload']);
+ 'com.2fdevs.videogular.plugins.controls', 'com.2fdevs.videogular.plugins.poster', 'ui.bootstrap', 'ui.bootstrap.tpls', 'uiGmapgoogle-maps', 'djds4rce.angular-socialshare', 'ezfb', 'ngFileUpload', 'angulike']);
 
 whwApp.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
@@ -166,9 +166,10 @@ whwApp.config(function(ezfbProvider) {
 });
 
 
-whwApp.config(['uiGmapGoogleMapApiProvider', function(GoogleMapApiProviders) {
-    GoogleMapApiProviders.configure({
-        key: 'AIzaSyDi1LaHfHr7dVfHaI7rts-UAuw4bdjKLkc'
+whwApp.config(['uiGmapGoogleMapApiProvider', function(uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+//        key: 'AIzaSyDi1LaHfHr7dVfHaI7rts-UAuw4bdjKLkc'
+        key: 'AIzaSyDeu8k3pDOIBb02JvekkARQlnLwOX5BNx0'
     });
 }]);
 
