@@ -655,11 +655,15 @@ button.sign-up-btn {
 /* Read About HER */
 
 div.home-article-container {
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
+    -webkit-flex-wrap: wrap; /* NEW */
 }
 
 div.home-article-box {
@@ -668,11 +672,16 @@ div.home-article-box {
     align-self: stretch;
     margin: 0 0 3em;
     position: relative;
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
     display: flex;
     flex-wrap: wrap;
+    -webkit-flex-wrap: wrap; /* NEW */
     flex-direction: column;
     justify-content: space-between;
     border: 4px solid transparent;
+    flex: 100;
 }
 
 div.home-article-box:nth-child(2) {
