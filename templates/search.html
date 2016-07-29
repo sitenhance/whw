@@ -26,7 +26,7 @@
                     <div class="search-video-result">
                         <div class="video-result-header">Videos:</div>
                         <div class="video-result-container">
-                            <div class="video-result-box" ng-repeat="video in videoList | limitTo: video_per_page">
+                            <div class="video-result-box" ng-repeat="video in videoList | limitTo: video_per_page track by $index">
                                 <a ui-sref="video({id: video.id})">
                                     <div class="video-result-section">
                                         <div class="video-result-thumbnail">
