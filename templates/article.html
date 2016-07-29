@@ -37,6 +37,26 @@
                         <i class="fa fa-envelope" aria-hidden="true"></i>
                     </a>
                 </div>
+                
+                <div class="article-social-section">
+                    <a ng-href="https://www.facebook.com/sharer/sharer.php?u={{formattedUrl}}" class="share-facebook-icon share-icons">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a ng-href="https://twitter.com/intent/tweet?via=WatchHerWorking&text={{twitterTitle}}&url={{formattedUrl}}" class="share-twitter-icon share-icons">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a ng-href="https://plus.google.com/share?url={{formattedUrl}}" class="share-icons share-google-icon">
+                        <i class="fa fa-google-plus" aria-hidden="true"></i>
+                    </a>
+                    <a href="//www.pinterest.com/pin/create/button/?url={{formattedUrl}}&media={{articleImage}}&description={{filteredContent}}"
+                        data-pin-do="buttonPin" data-pin-config="" data-pin-shape="round" target="_blank" class="share-pinterest-icon share-icons">
+                        <i class="fa fa-pinterest"></i>
+                    </a>
+                    <a ng-href="mailto:?subject=Check out this lesson from WatchHERWork &amp;body=I found this great link and thought you might enjoy it! {{formattedUrl}}"
+                        title="Share by Email" class="share-icons share-email-icon">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </a>
+                </div>
                 <!-- end of article social section -->
                 <div class="article-comments-section">
                 </div>
