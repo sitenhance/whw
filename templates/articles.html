@@ -5,34 +5,36 @@
                 <h1>Articles</h1>
             </div>
             <!-- end of read-title-container -->
-        </div><!-- end of col md 4 -->
-    </div><!-- end of row -->
+        </div>
+        <!-- end of col md 4 -->
+    </div>
+    <!-- end of row -->
     <div class="row articles-layout">
         <div class="col-md-8">
             <div class="articles-section" ng-repeat="post in filteredPosts" ng-class="{sponsoredSection: post.acf.is_this_an_advertisement}">
-                    <div class="article" ng-class="{sponsored: post.acf.is_this_an_advertisement}">
-                        <div class="img-container" ui-sref="article({id: post.id})">
-                            <img ng-src="{{post.acf.article_image.url}}" alt="" class="articles-img">
-                        </div>
-                        <!-- end of img container -->
-                        <div class="article-content">
-                            <div class="article-title-container" ui-sref="article({id: post.id})">
-                                <h3>{{post.title.rendered}}</h3>
-                            </div>
-                            <!-- end of article title container -->
-                            <div class="article-excerpt-container" ng-bind-html="post.excerpt.rendered | to_trusted" ui-sref="article({id: post.id})">
-                            </div>
-                            <!-- end of article excerpt container -->
-                            <div class="author-info-container">
-                                <p ng-show="post.acf.is_this_an_advertisement"><i class="fa fa-star-o sponsor-icon"></i>{{post.acf.sponsors_name}}</p>
-                                <div ng-hide="post.acf.is_this_an_advertisement" class="articles-img-author" style="background: url({{post.acf.authors_image.sizes.thumbnail}}) no-repeat center;" ui-sref="author({id: post.author})"></div>
-                                <p ng-hide="post.acf.is_this_an_advertisement" ui-sref="author({id: post.author})">{{post.acf.author_name}}</p>
-                            </div>
-                            <!-- end of athor info container -->
-                        </div>
-                        <!-- end of article content -->
+                <div class="article" ng-class="{sponsored: post.acf.is_this_an_advertisement}">
+                    <div class="img-container" ui-sref="article({id: post.id})">
+                        <img ng-src="{{post.acf.article_image.url}}" alt="" class="articles-img">
                     </div>
-                    <!-- end of article -->
+                    <!-- end of img container -->
+                    <div class="article-content">
+                        <div class="article-title-container" ui-sref="article({id: post.id})">
+                            <h3>{{post.title.rendered}}</h3>
+                        </div>
+                        <!-- end of article title container -->
+                        <div class="article-excerpt-container" ng-bind-html="post.excerpt.rendered | to_trusted" ui-sref="article({id: post.id})">
+                        </div>
+                        <!-- end of article excerpt container -->
+                        <div class="author-info-container">
+                            <p ng-show="post.acf.is_this_an_advertisement"><i class="fa fa-star-o sponsor-icon"></i>{{post.acf.sponsors_name}}</p>
+                            <div ng-hide="post.acf.is_this_an_advertisement" class="articles-img-author" style="background: url({{post.acf.authors_image.sizes.thumbnail}}) no-repeat center;" ui-sref="author({id: post.author})"></div>
+                            <p ng-hide="post.acf.is_this_an_advertisement" ui-sref="author({id: post.author})">{{post.acf.author_name}}</p>
+                        </div>
+                        <!-- end of athor info container -->
+                    </div>
+                    <!-- end of article content -->
+                </div>
+                <!-- end of article -->
             </div>
             <!-- end of articles section -->
             <div class="pagination-section">
@@ -42,6 +44,9 @@
             </div>
         </div>
         <!-- end of col md 8 -->
+
+        <!-- Ad section -->
+<!--
         <div class="col-md-4">
             <div class="hello">
                 <div class="articles-ad-one">
@@ -50,14 +55,17 @@
                             <img ng-src="{{adSkyscraperOne}}" alt="">
                         </a>
                     </div>
-                <div class="articles-ad-three">
-                    <div class="ad-container">
-                        <a ng-href="{{adRectThree}}">
-                            <img ng-src="{{adRectThree}}" alt="">
-                        </a>
-                    </div>                    
-                </div><!-- end of ad three -->
+                    <div class="articles-ad-three">
+                        <div class="ad-container">
+                            <a ng-href="{{adRectThree}}">
+                                <img ng-src="{{adRectThree}}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div><!-- end of row -->
-</div>
+-->
+        <!-- end of row -->
+        
+    </div>
