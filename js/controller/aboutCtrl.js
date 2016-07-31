@@ -37,19 +37,12 @@
             $scope.featuredLogos = res.acf.featured_logos;
             
         });
-        
-        //Get About page video
-        $scope.config = {
-            sources: [
-                { src: $sce.trustAsResourceUrl('http://d16at6ua905oks.cloudfront.net/Home/DeniseHamilton/DeniseHamilton_Home_WelcomeToWatchHerWork_WatchHerWork_Founder_Dhamilton-1467727970739.mp4'), type: "video/mp4" }
-            ],
-            plugins: {
-                controls: {
-                    autoHide: true,
-                    autoHideTime: 3000
-                },
-            }
+
+        $scope.options = {
+                type: 'mp4',
         };
+
+        $scope.file = $sce.trustAsResourceUrl('http://d16at6ua905oks.cloudfront.net/Home/DeniseHamilton/DeniseHamilton_Home_WelcomeToWatchHerWork_WatchHerWork_Founder_Dhamilton-1467727970739.mp4');
         
         var cnt = 0;
         
