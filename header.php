@@ -14,6 +14,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/favicon.png">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="http://content.jwplatform.com/libraries/u5Apx40q.js"></script>
     <?php wp_head(); ?>
     <!--[if lt IE 9]>
 	    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
