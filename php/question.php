@@ -22,7 +22,7 @@ $data = array(); 		// array to pass back data
 		
 	} else {
 		$mail = new PHPMailer(); // create a new object
-		//$mail->IsSMTP(); // enable SMTP
+		$mail->IsSMTP(); // enable SMTP
 		$mail->SMTPAuth = true; // authentication enabled
 		$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
 		$mail->Host = "smtp.gmail.com";
