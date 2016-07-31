@@ -1977,6 +1977,10 @@ div.single-video-container {
     -ms-flex-align: center;
 }
 
+div.single-video-player-container {
+    width: 100%;
+}
+
 div.single-video-title {
     align-self: flex-start;
     -webkit-align-self: flex-start;
