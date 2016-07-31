@@ -21,9 +21,7 @@
             wp_enqueue_script('fbEasy', 'http://pc035860.github.io/angular-easyfb/angular-easyfb.min.js', array('angular-core'), null, false);    
             wp_enqueue_script('ui-google-maps', get_template_directory_uri().'/js/vendor/angular-google-maps.min.js', array('simpleLogger'), null, false);
             wp_enqueue_script('socialShareJS', get_template_directory_uri().'/js/vendor/angular-socialshare.min.js', array('angular-core'), null, false);
-            wp_enqueue_script('videogular', get_template_directory_uri() . '/js/vendor/videogular.min.js', array('angular-core'), null, false);
-            wp_enqueue_script('vg-controls', get_template_directory_uri() . '/js/vendor/vg-controls.min.js', array('angular-core'), null, false);
-            wp_enqueue_script('vg-poster', get_template_directory_uri() . '/js/vendor/vg-poster.js', array('angular-core'), null, false);
+            wp_enqueue_script('jwPlayer', get_template_directory_uri().'/js/vendor/jwplayer.min.js', array('angular-core'), null, false);
             wp_enqueue_script('ngFileShim', get_template_directory_uri() . '/js/vendor/ng-file-upload-shim.min.js', array('angular-core'), null, false);
             wp_enqueue_script('ngFileUpload', get_template_directory_uri() . '/js/vendor/ng-file-upload.min.js', array('angular-core'), null, false);
             wp_enqueue_script('awsSDK', 'https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.3.11/aws-sdk.min.js', array('angular-core'), null, false);
