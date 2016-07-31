@@ -4,23 +4,8 @@
             <div class="col-md-7 col-md-offset-1">
                 <div class="home-video-section">
                     <div class="home-video-container">
-                        <videogular>
-                            <vg-media vg-src="config.sources"></vg-media>
-                            <vg-controls vg-autohide="config.plugins.controls.autoHide" vg-autohide-time="config.plugins.controls.autoHideTime">
-                                <vg-play-pause-button></vg-play-pause-button>
-                                <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
-                                <vg-scrub-bar>
-                                    <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-                                </vg-scrub-bar>
-                                <vg-time-display>{{ timeLeft | date: 'mm:ss' }}</vg-time-display>
-                                <vg-volume>
-                                    <vg-mute-button></vg-mute-button>
-                                    <vg-volume-bar></vg-volume-bar>
-                                </vg-volume>
-                                <vg-fullscreen-button></vg-fullscreen-button>
-                            </vg-controls>
-                            <vg-poster vg-url='config.plugins.poster'></vg-poster>
-                        </videogular>
+                        <jwplayer ng-src="{{ file }}" player-options="options" player-id="myPlayer1">
+                        </jwplayer>
                     </div>
                     <!-- end of home video container -->
                 </div>
