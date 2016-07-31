@@ -1,5 +1,4 @@
-var whwApp = angular.module('whwApp', ['ui.router', 'ngResource', 'ngSanitize', 'com.2fdevs.videogular',
- 'com.2fdevs.videogular.plugins.controls', 'com.2fdevs.videogular.plugins.poster', 'ui.bootstrap', 'ui.bootstrap.tpls', 'uiGmapgoogle-maps', 'djds4rce.angular-socialshare', 'ezfb', 'ngFileUpload', 'angulike']);
+var whwApp = angular.module('whwApp', ['ui.router', 'ngResource', 'ngSanitize', 'ui.bootstrap', 'ui.bootstrap.tpls', 'uiGmapgoogle-maps', 'djds4rce.angular-socialshare', 'ezfb', 'ngFileUpload', 'angulike', 'ng-jwplayer']);
 
 whwApp.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
