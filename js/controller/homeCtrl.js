@@ -1,5 +1,5 @@
 (function() {
-    whwApp.controller('homeCtrl', [ '$scope', 'pagesService', '$sce', 'postsService', '$http', function($scope, pagesService, $sce, postsService, $http) {
+    whwApp.controller('homeCtrl', [ '$scope', 'pagesService', '$sce', 'postsService', '$http', '$rootScope', function($scope, pagesService, $sce, postsService, $http, $rootScope) {
         pagesService.homePage.get(function(res) {
             $scope.top_ad_img = res.acf.top_advertisement_image.url;
             $scope.top_ad_url = res.acf.top_advertisement_url_link;
@@ -18,18 +18,12 @@
             $scope.twitter_feed = res.acf.twitter_feed;
             $scope.pinterest_feed = res.acf.pinterest_feed;
         });
-        
-       $scope.config = {
-           sources: [
-               {src: $sce.trustAsResourceUrl('http://d16at6ua905oks.cloudfront.net/Home/DeniseHamilton/DeniseHamilton_Home_WelcomeToWatchHerWork_WatchHerWork_Founder_Dhamilton-1467727970739.mp4'), type: "video/mp4"}
-           ],
-           plugins: {
-               controls: {
-                   autoHide: true,
-                   autoHideTime: 3000
-               }
-           }
-       };
+
+        $scope.options = {
+                type: 'mp4',
+        };
+
+        $scope.file = $sce.trustAsResourceUrl('http://d16at6ua905oks.cloudfront.net/Home/DeniseHamilton/DeniseHamilton_Home_WelcomeToWatchHerWork_WatchHerWork_Founder_Dhamilton-1467727970739.mp4');
        
        $scope.facebookImg = appInfo.template_url + 'images/facebook.png';
        
