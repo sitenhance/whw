@@ -1,5 +1,5 @@
 (function () {
-    whwApp.controller('videosCtrl', ['$scope', 'pagesService', '$sce', '$state', 'videoCategoriesService', '$stateParams', 'usersService', 'ezfb', '$location', '$http', function ($scope, pagesService, $sce, $state, videoCategoriesService, $stateParams, usersService, ezfb, $location, $http) {
+    whwApp.controller('videosCtrl', ['$scope', 'pagesService', '$sce', '$state', 'videoCategoriesService', '$stateParams', 'usersService', 'ezfb', '$location', '$http', '$rootScope', function ($scope, pagesService, $sce, $state, videoCategoriesService, $stateParams, usersService, ezfb, $location, $http, $rootScope) {
 
         function isEmpty(obj) {
             for (var prop in obj) {
@@ -32,20 +32,11 @@
                 $scope.videoTitle = videoArray[0].Title;
                 console.log(videoArray[0].AbsPath);
                 $scope.twitterTitle = $scope.videoTitle.split(' ').join('+');
-                $scope.config = {
-                    sources: [
-                        {
-                            src: $sce.trustAsResourceUrl('http://d16at6ua905oks.cloudfront.net/' + videoArray[0].AbsPath),
-                            type: "video/mp4"
-                        }
-                    ],
-                    plugins: {
-                        controls: {
-                            autoHide: true,
-                            autoHideTime: 3000
-                        }
-                    }
+                $scope.options = {
+                        type: 'mp4',
                 };
+
+                $scope.file = $sce.trustAsResourceUrl('http://d16at6ua905oks.cloudfront.net/' + videoArray[0].AbsPath);
 
                 findRelated(videoArray[0].Category, $stateParams.id);
 
