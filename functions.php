@@ -4,7 +4,7 @@
         function enqueue_scripts() {
             wp_enqueue_style('bootstrapCSS', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', array(), '1.0', 'all');
             wp_enqueue_style('videogularCSS', get_template_directory_uri() . '/css/videogular.min.css', array(), '1.0', 'all');
-            wp_enqueue_style('customCSS', get_template_directory_uri(). '/css/styles.css', array(bootstrapCSS));
+            wp_enqueue_style('customCSS', get_template_directory_uri(). '/css/styles.css', array('bootstrapCSS'));
             wp_enqueue_style('fontAwesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css', array('bootstrapCSS'));
             wp_enqueue_style('socialShareCSS', get_template_directory_uri().'/css/angular-socialshare.min.css', array('bootstrapCSS'));
             wp_enqueue_style('owlCarouselDefaultCSS', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.theme.default.min.css', array('bootstrapCSS'));
